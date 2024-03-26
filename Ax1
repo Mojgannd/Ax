@@ -1,0 +1,17 @@
+from openai import OpenAI
+
+# Set up your API key
+api_key = "YOUR_API_KEY_HERE"
+client = OpenAI(api_key)
+
+# Generate an image
+response = client.images.generate(
+    model="dall-e-3",
+    prompt="Mojgan naghizadeh who is very hard working and study a lot",
+    size="1024x1024",
+    quality="standard",
+    n=1,
+)
+
+image_url = response.data[0].url
+print("Generated image URL:", image_url)
